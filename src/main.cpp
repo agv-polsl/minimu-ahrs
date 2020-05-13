@@ -54,7 +54,11 @@ int main() {
 
     double dt = 0.005;
     ahrs::Ahrs ahrs{gyro, acc, mag, dt};
-    ahrs.calibrate();
+    std::cout << "Calibrating imu\n";
+    ahrs.calibrate_imu();
+    std::cout << "Calibrating mag\n";
+    ahrs.calibrate_mag();
+    std::cout << "Calibration finished\n";
 
     while (true) {
         std::this_thread::sleep_for(std::chrono::duration<double>(dt));
