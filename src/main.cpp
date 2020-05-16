@@ -21,8 +21,7 @@ class MinimuImuGyro : public ahrs::Sensor {
 };
 
 class MinimuImuAcc : public ahrs::Sensor {
-   public:
-    MinimuImuAcc(minimu::Lsm6_imu& imu) : imu{imu} {}
+   public: MinimuImuAcc(minimu::Lsm6_imu& imu) : imu{imu} {}
     ahrs::sensor_readout read() override {
         auto a = imu.read_acc();
         return {a.x, a.y, a.z};
@@ -57,7 +56,7 @@ int main() {
     std::cout << "Calibrating imu\n";
     ahrs.calibrate_imu();
     std::cout << "Calibrating mag\n";
-    ahrs.calibrate_mag();
+    ahrs.calibrate_mag(5000);
     std::cout << "Calibration finished\n";
 
     while (true) {
