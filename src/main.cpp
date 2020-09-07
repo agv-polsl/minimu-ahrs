@@ -3,7 +3,7 @@
 #include <thread>
 
 #include "ahrs/ahrs.h"
-#include "ahrs/ahrs_sensors.h"
+#include "ahrs/sensors.h"
 #include "minimu/i2c_device.h"
 #include "minimu/lis3mdl_magmeter.h"
 #include "minimu/lsm6_imu.h"
@@ -43,6 +43,8 @@ class MinimuMag : public ahrs::Sensor {
     minimu::Lis3mdl_magmeter& mag;
 };
 
+using namespace std::chrono_literals;
+
 int main() {
     minimu::Lsm6_imu li{1, minimu::sa0_state::sa0_high};
     minimu::Lis3mdl_magmeter lm{1, minimu::sa0_state::sa0_high};
@@ -51,7 +53,7 @@ int main() {
     MinimuImuGyro gyro{li};
     MinimuMag mag{lm};
 
-    double dt = 0.005;
+    std::chrono::milliseconds dt = 5ms;
     ahrs::Ahrs ahrs{gyro, acc, mag, dt};
     std::cout << "Calibrating imu\n";
     ahrs.calibrate_imu();
@@ -60,7 +62,7 @@ int main() {
     std::cout << "Calibration finished\n";
 
     while (true) {
-        std::this_thread::sleep_for(std::chrono::duration<double>(dt));
+        std::this_thread::sleep_for(dt);
         auto readout = ahrs.update();
         std::cout << "x: " << readout.x << '\t' << "y: " << readout.y << '\t'
                   << "z: " << readout.z << '\n';
