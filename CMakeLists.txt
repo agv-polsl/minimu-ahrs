@@ -23,7 +23,7 @@ target_compile_options(minimu-ahrs PRIVATE
     -Wdouble-promotion # Warn if float is implicit promoted to double
 )
 
-add_subdirectory(lib/ekf-ahrs)
+add_subdirectory(lib/kalman-ahrs)
 add_subdirectory(lib/minimu)
 
 target_link_libraries(minimu-ahrs
