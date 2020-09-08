@@ -3,10 +3,10 @@
 # Minimu AHRS
 
 AHRS Kalman based system using Pololu Minimu-9 v5 sensor combo.
-This is a demo utlising Linux Minimu reader and Kalman filter AHRS libraries.
+This is a demo utilising Linux Minimu reader and Kalman filter AHRS libraries.
 
-For more detail please visit submodules with mentioned libraries in the `lib`
-directory.
+For more detail please visit submodules with the mentioned libraries in the
+`lib` directory.
 
 ## Build
 
