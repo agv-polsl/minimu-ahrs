@@ -1,3 +1,5 @@
+![Build](https://github.com/agv-polsl/minimu-ahrs/workflows/Build/badge.svg)
+
 # Minimu AHRS
 
 AHRS Kalman based system using Pololu Minimu-9 v5 sensor combo.
