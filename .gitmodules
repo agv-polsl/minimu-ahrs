@@ -1,6 +1,6 @@
-[submodule "lib/ekf-ahrs"]
-	path = lib/ekf-ahrs
-	url = https://github.com/agv-polsl/ekf-ahrs
+[submodule "lib/kalman-ahrs"]
+	path = lib/kalman-ahrs
+	url = https://github.com/agv-polsl/kalman-ahrs
 [submodule "lib/minimu"]
 	path = lib/minimu
 	url = https://github.com/agv-polsl/minimu
